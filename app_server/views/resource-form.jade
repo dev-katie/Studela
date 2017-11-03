@@ -1,0 +1,38 @@
+extends layout 
+
+block content
+  .container
+    h1= title
+
+    h3 New Resource
+    .row
+      .col-xs-12.col-md-6
+        form.form-horizontal(action="", method="post", role="form")
+          .form-group
+            label(for='course') Course:
+            select#course.form-control(type='select' name='course' required='true' )
+              for course in courses
+                if resource
+                  option(
+                    value=course._id
+                    selected=(
+                      course._id.toString()==resource.course._id
+                      || course._id.toString()==resource.course
+                    ) ? 'selected' : false
+                  ) #{course.course_name}
+                else
+                  option(value=course._id) #{course.course_name} - #{course.department.department_name}
+          .form-group
+            label(for='resource_name') Resource Title:
+            input#resource_name.form-control(type='text', placeholder='Title' value=(undefined===resource ? '' : resource.resource_name) name='resource_name' required='true')
+          .form-group
+            label(for='resource_desc') Short Description:
+            input#resource_desc.form-control(type='text', placeholder='Description' value=(undefined===resource ? '' : resource.resource_desc) name='resource_desc' required='true' )
+          .form-group
+            label(for='resource_details') Details
+            textarea.form-control(rows=10, cols=100, name='resource_details')= (undefined===resource ? '' : resource.resource_details)
+
+
+          button.btn.btn-primary(type='submit') Add Resource
+
+      

@@ -1,0 +1,14 @@
+extends layout
+ 
+block content
+  .container
+    if department.length > 0
+      p Delete these departments first
+      for dept in department
+        a(href='/department/#{dept._id}') #{dept.department_name}
+    else
+      h4 Do you really want to delete #{faculty.faculty_name}
+
+      form(method='POST' action='')
+        .form-group
+          button.btn.btn-danger(type='submit') Delete

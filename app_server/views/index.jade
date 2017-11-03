@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  .home
+    .jumbotron
+      h1= title
+      h3 Welcome to #{title}
+        p= description
+
+    .row#index
+      .col-sm-6
+        if error
+          p Error getting dynamic content.
+        else
+          p This resource center has the following record counts:
+
+          ul
+            li 
+              a(href='/faculties') #[strong Faculties:] 
+              | !{results.faculty_count}
+            li 
+              a(href="/departments") #[strong Departments:] 
+              | !{results.department_count}
+            li 
+              a(href="/courses") #[strong Courses:] 
+              | !{results.course_count} 
+            li 
+              a(href="/resources") #[strong Resources:] 
+              | !{results.resource_count}
+      .col-sm-6
+        img(src='../images/computer.jpg')
+

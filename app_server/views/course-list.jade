@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  .container
+    h1=title
+    
+    a.btn.btn-primary(href='/course/create') Add Course
+
+    .row
+          table.table.table-bordered.table-hover
+            thead
+              tr.head
+                th Course code
+                th Course name
+                th Department
+            tbody
+            each course in courses
+              tr
+                td.col-sm-3= course.course_code
+                td.col-sm-5 
+                  a(href='/course/#{course._id}')= course.course_name
+                td.col-sm-4 
+                  a(href='/department/#{course.department._id}')= course.department.department_name
+                
+

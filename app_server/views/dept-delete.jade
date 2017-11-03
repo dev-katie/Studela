@@ -1,0 +1,14 @@
+extends layout
+ 
+block content
+  .container
+    if courses.length > 0 
+      p Delete these Courses first
+      for course in courses
+        a(href='/course/#{course._id}') #{course.course_name}
+    else
+      h4 Do you really want to delete #{department.department_name}
+
+      form(method='POST' action='')
+        .form-group
+          button.btn.btn-danger(type='submit') Delete

@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  .container
+    h1=title
+    
+    a.btn.btn-primary(href='/resource/create') Add Resource
+
+    .row
+          table.table.table-bordered.table-hover
+            thead
+              tr.head
+                th Resource name
+                th Resource Description
+                th Course
+            tbody
+            each resource in resources
+              tr
+                td.col-sm-3= resource.resource_name
+                td.col-sm-5 
+                  a(href='/resource/#{resource._id}')= resource.resource_desc
+                td.col-sm-4 
+                  a(href='/course/#{resource.course._id}')= resource.course.course_name
+                
+

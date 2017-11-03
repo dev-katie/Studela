@@ -1,0 +1,50 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+    link(href="https://fonts.googleapis.com/css?family=Merriweather|Rozha+One|Saira+Semi+Condensed" rel="stylesheet")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script.
+      function _open() {
+        document.getElementById("main").style.marginLeft = "200px";
+        document.getElementById("sidebar-nav").style.width = "250px";
+        document.getElementById("sidebar-nav").style.display = "block";
+        document.getElementById("openNav").style.display = 'none';
+      }
+      function _close() {
+        document.getElementById("main").style.marginLeft = "-2%";
+        document.getElementById("main").style.width = "100%";
+        document.getElementById("sidebar-nav").style.display = "none";
+        document.getElementById("openNav").style.display = "inline-block";
+      }
+    
+  body
+      div(class='row')
+          block sidebar
+            ul(id='sidebar-nav')
+              a.glyphicon.glyphicon-remove(onclick="_close()")
+              li 
+                a(href='/') Home
+              li 
+                a(href='/faculties') All Faculties
+              li 
+                a(href='/departments') All Departments
+              li 
+                a(href='/courses') All Courses
+              li 
+                a(href='/resources') All Resources
+              hr
+              li 
+                a(href='/faculty/create') Create new faculty
+              li 
+                a(href='/department/create') Create new department
+              li 
+                a(href='/course/create') Create new course
+              li 
+                a(href='/resource/create') Create new Resource
+                
+          div( id="main")
+            #openNav
+              a.glyphicon.glyphicon-menu-hamburger(onclick='_open()')  
+            block content

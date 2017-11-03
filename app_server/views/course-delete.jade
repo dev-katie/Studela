@@ -1,0 +1,15 @@
+extends layout
+ 
+block content
+  .container
+    if resources.length > 0  
+      p Delete these Resources first
+      for res in resources
+        a(href='/resource/#{res._id}') #{res.resource_name}
+    else
+      h4 Do you really want to delete 
+        strong #{courses.course_name}
+
+      form(method='POST' action='')
+        .form-group
+          button.btn.btn-danger(type='submit') Delete

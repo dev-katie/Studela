@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  .container
+    h1=title
+    
+    a.btn.btn-primary(href='/faculty/create') Add Faculty
+
+    .row
+        table.table.table-bordered.table-hover
+          thead
+            tr.head
+              th Faculty code
+              th Faculty name
+          tbody
+          each faculty in faculties
+            tr
+              td.col-sm-3= faculty.faculty_code
+              td.col-sm-9 
+                a(href='/faculty/#{faculty._id}') #{faculty.faculty_name}
+
+          else
+            p There are no faculties.
+                
+

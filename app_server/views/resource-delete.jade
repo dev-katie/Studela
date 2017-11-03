@@ -1,0 +1,9 @@
+extends layout
+ 
+block content
+  .container
+    h4 Do you really want to delete  
+      strong #{resource.resource_name}
+    form(method='POST' action='')
+      .form-group
+        button.btn.btn-danger(type='submit') Delete

@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  .container 
+    h1= title
+
+    h2 #{department.department_name}  - #{department.faculty.faculty_name}
+    em #{department.department_code}
+
+    h4 Courses   
+      a.btn.btn-md.btn-primary(href='/course/create') Add new Course
+      ul
+      each course in courses
+        li 
+          a(href='/course/#{course._id}') #{course.course_code} - #{course.course_name}
+
+      else
+        p There are no Courses.
+    a.btn.btn-md.btn-info(href='/department/#{department._id}/update') Update Department 
+    &nbsp; &nbsp;
+    a.btn.btn-md.btn-danger(href='/department/#{department._id}/delete') Delete Department

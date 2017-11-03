@@ -1,0 +1,21 @@
+extends layout
+
+block content 
+  .container
+    h1= title
+    h2 #{resource.resource_name}
+
+    em #{resource.resource_desc}
+
+    hr
+
+    p #{resource.resource_details}
+
+    
+    hr
+    p Browse similar resources of 
+      a(href='/course/#{resource.course._id}') #{resource.course.course_name} 
+    
+    a.btn.btn-md.btn-info(href='/resource/#{resource._id}/update') Update Resource 
+    &nbsp; &nbsp;
+    a.btn.btn-md.btn-danger(href='/resource/#{resource._id}/delete') Delete Resource

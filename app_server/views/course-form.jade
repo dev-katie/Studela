@@ -1,0 +1,34 @@
+extends layout 
+
+block content
+  .container
+    h1= title
+
+    h3 New Course
+    .row
+      .col-xs-12.col-md-6
+        form.form-horizontal(action="", method="post", role="form")
+          .form-group
+            label(for='department') Department:
+            select#department.form-control(type='select' placeholder='Select Department' name='department' required='true' )
+              for dept in departments
+                if department
+                  option(
+                    value=dept._id
+                    selected=(
+                      dept._id.toString()==course.department._id
+                      || dept._id.toString()==course.department
+                    ) ? 'selected' : false
+                  ) #{dept.department_name}
+                else
+                  option(value=dept._id) #{dept.department_name}
+          .form-group
+            label(for='course_code') Course Code:
+            input#course_code.form-control(type='text', placeholder='Course code' value=(undefined===course ? '' : course.course_code) name='course_code' required='true')
+          .form-group
+            label(for='title') Course Name:
+            input#course_name.form-control(type='text', placeholder='Course name' value=(undefined===course ? '' : course.course_name) name='course_name' required='true' )
+          
+          button.btn.btn-primary(type='submit') Add
+
+    

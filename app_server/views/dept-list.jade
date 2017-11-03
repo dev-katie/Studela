@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  .container
+    h1=title
+    
+    a.btn.btn-primary(href='/department/create') Add Department
+
+    .row
+          table.table.table-bordered.table-hover
+            thead
+              tr.head
+                th Department code
+                th Department name
+                th Faculty
+            tbody
+            each dep in dept
+              tr
+                td= dep.department_code
+                td 
+                  a(href='/department/#{dep._id}')= dep.department_name
+                td= dep.faculty.faculty_name
+                
+

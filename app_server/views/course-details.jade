@@ -1,0 +1,20 @@
+extends layout
+
+block content 
+  .container
+    h1= title
+    h2 #{course.department.department_name}
+    h2 #{course.course_name}  - #{course.course_code}
+    a.btn.btn-md.btn-primary(href='/resource/create') Add new Resource
+    hr
+    h4 Available Resources 
+      ul
+      each resource in resources
+        li 
+          a(href='/resource/#{resource._id}') #{resource.resource_name} - #{resource.resource_desc}
+
+      else
+        p There are no Resources.
+    a.btn.btn-md.btn-info(href='/course/#{course._id}/update') Update Course 
+    &nbsp; &nbsp;
+    a.btn.btn-md.btn-danger(href='/course/#{course._id}/delete') Delete Course
