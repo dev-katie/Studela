@@ -15,6 +15,7 @@
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
     "express": "~4.15.2",
+    "express-validator": "^4.3.0",
     "jade": "~1.11.0",
     "latest-version": "^3.1.0",
     "moment": "^2.19.1",
